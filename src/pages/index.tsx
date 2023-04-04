@@ -81,7 +81,7 @@ const Home: NextPage = () => {
 
         <div className="container px-4 lg:px-24">
           <div className="mb-8">
-            <form onSubmit={void handleSubmit(onSubmit)}>
+            <form onSubmit={handleSubmit(onSubmit)}>
               <label
                 htmlFor="question"
                 className="mb-3 block text-base font-medium text-white"
