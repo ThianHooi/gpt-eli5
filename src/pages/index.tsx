@@ -118,7 +118,7 @@ const Home: NextPage = () => {
           leaveFrom="opacity-100 rotate-0 scale-100 "
           leaveTo="opacity-0 scale-95 "
         >
-          <div className="w-full px-4">
+          <div className="container px-4 lg:px-24">
             <Card>
               <h2 className="mb-4 text-center text-lg font-bold capitalize">
                 {eli5?.data?.topic}
