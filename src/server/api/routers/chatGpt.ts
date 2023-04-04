@@ -18,7 +18,9 @@ export const chatGptRouter = createTRPCRouter({
       })
     )
     .query(async ({ input }) => {
-      const randomTopic = input.showRandomTopic ? randomWords(1)[0] : "";
+      const randomTopic = input.showRandomTopic
+        ? (randomWords(1)[0] as string)
+        : "artificial intelligence";
 
       const completion = await openai
         .createChatCompletion({

@@ -1,7 +1,7 @@
+import { Transition } from "@headlessui/react";
 import { type NextPage } from "next";
 import Head from "next/head";
-import { Transition } from "@headlessui/react";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
 import Card from "~/components/Card";
 import ConfirmButton from "~/components/ConfirmButton";
@@ -42,7 +42,7 @@ const Home: NextPage = () => {
       text: undefined,
       showRandomTopic: true,
     });
-    eli5.refetch();
+    void eli5.refetch();
   };
 
   const eli5 = api.chatGpt.eli5.useQuery(
@@ -81,7 +81,7 @@ const Home: NextPage = () => {
 
         <div className="container px-4 lg:px-24">
           <div className="mb-8">
-            <form onSubmit={handleSubmit(onSubmit)}>
+            <form onSubmit={void handleSubmit(onSubmit)}>
               <label
                 htmlFor="question"
                 className="mb-3 block text-base font-medium text-white"
@@ -120,7 +120,7 @@ const Home: NextPage = () => {
         >
           <div className="w-full px-4">
             <Card>
-              <h2 className="text-center text-lg font-bold capitalize mb-4">
+              <h2 className="mb-4 text-center text-lg font-bold capitalize">
                 {eli5?.data?.topic}
               </h2>
               <p>{eli5?.data?.answer}</p>
